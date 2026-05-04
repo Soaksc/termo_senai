@@ -15,14 +15,13 @@ const teclado = document.getElementById("teclado");
 const faseTexto = document.getElementById("fase");
 const msg = document.getElementById("mensagem");
 
-/* botão iniciar */
+/* iniciar */
 function comecarJogo() {
   document.getElementById("inicio").style.display = "none";
   document.getElementById("jogo").style.display = "block";
   iniciar();
 }
 
-/* iniciar */
 function iniciar() {
   criarTeclado();
   novaFase();
@@ -33,7 +32,7 @@ function embaralhar(array) {
   return array.sort(() => Math.random() - 0.5);
 }
 
-/* nova fase SEM REPETIÇÃO */
+/* nova fase */
 function novaFase() {
   linhaAtual = 0;
   tentativa = "";
@@ -47,8 +46,6 @@ function novaFase() {
   criarGrids(fase);
   faseTexto.innerText = "Fase " + fase;
   msg.innerText = "";
-
-  console.log("Palavras:", palavrasAtuais);
 }
 
 /* grids */
@@ -83,7 +80,7 @@ function criarTeclado() {
 
     l.split("").forEach(letra => {
       let t = document.createElement("div");
-      t.innerText = letra;
+      t.innerText = letra.toUpperCase();
       t.classList.add("tecla");
       t.onclick = () => digitar(letra);
       div.appendChild(t);
@@ -92,11 +89,25 @@ function criarTeclado() {
     teclado.appendChild(div);
   });
 
+  /* botão apagar */
+  let apagar = document.createElement("div");
+  apagar.innerText = "⌫";
+  apagar.classList.add("tecla");
+  apagar.onclick = apagarLetra;
+  teclado.appendChild(apagar);
+
+  /* botão enter */
   let enter = document.createElement("div");
   enter.innerText = "ENTER";
   enter.classList.add("tecla");
   enter.onclick = enviar;
   teclado.appendChild(enter);
+}
+
+/* apagar */
+function apagarLetra() {
+  tentativa = tentativa.slice(0, -1);
+  atualizar();
 }
 
 /* digitar */
