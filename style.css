@@ -119,3 +119,50 @@ button:hover {
   font-size: 22px;
   font-weight: bold;
 }
+
+@media (max-width: 600px) {
+
+  h1 {
+    font-size: 28px;
+  }
+
+  #fase {
+    font-size: 22px;
+  }
+
+  /* grids lado a lado quebram linha */
+  #jogos {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* células menores mas proporcionais */
+  .grid {
+    grid-template-columns: repeat(5, 55px);
+    gap: 6px;
+  }
+
+  .celula {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+  }
+
+  /* teclado melhor */
+  .tecla {
+    padding: 12px;
+    margin: 3px;
+    font-size: 16px;
+  }
+
+  /* botão maior */
+  button {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
+  #mensagem {
+    font-size: 20px;
+  }
+}
