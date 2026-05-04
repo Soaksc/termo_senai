@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu Termo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="inicio">
+  <h1>Projeto - Jogo de Embalagens</h1>
+  <p>
+    Adivinhe palavras relacionadas a embalagens.
+    Cada fase aumenta a dificuldade com mais palavras ao mesmo tempo.
+  </p>
+  <button onclick="comecarJogo()">Começar</button>
+</div>
+
+<div id="jogo" style="display:none;">
+  <h1>TERMO</h1>
+  <h2 id="fase"></h2>
+
+  <div id="dica"></div>
+
+  <div id="jogos"></div>
+  <div id="mensagem"></div>
+  <div id="teclado"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
